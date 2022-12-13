@@ -2,6 +2,7 @@
 #include "main.h"
 
 /**
+ * main - prints all natural numbers
  * print_to_98 - print all numbers from input to 98
  * @n: the starting number
  */
@@ -24,5 +25,6 @@ void print_to_98(int n)
 		while (n < 98)
 			printf("%d, ", n++);
 		printf("%d\n", n);
+		return (0);
 	}
 }
