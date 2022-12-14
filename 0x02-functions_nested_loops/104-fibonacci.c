@@ -1,60 +1,50 @@
 #include <stdio.h>
 
 /**
- * numLength - returns the length of string
- * @num : operand number
- * Return: number of digits
+ * main - Prints the first 98 Fibonacci numbers
+ *
+ * Return: Always 0.
  */
-
-int numLength(int num)
-{
-	int length = 0;
-
-	if (!num)
-	{
-		return (1);
-	}
-
-	while (num)
-	{
-		num = num / 10;
-		length += 1;
-	}
-
-	return (length);
-}
-/**
- * *main - prints the first 98 fibonaci sequences
- * Return: 0
- */
-
 int main(void)
 {
-	unsigned long f1 = 1, f2 = 2, tmp, mx= 100000000, f1o = 0, f20 = 0, tmpo = 0; short int i = 1, initial0s;
+	int c, boolean, boolean2;
+	long int n1, n2, fn, fn2, n11, n22;
 
-	while (i <= 98)
+	n1 = 1;
+	n2 = 2;
+	boolean = boolean2 = 1;
+	printf("%ld, %ld", n1, n2);
+	for (c = 0; c < 96; c++)
 	{
-		if (f10 > 0)
-			printf("%lu", f1o);
-		initial0s = numLength(mx) - 1 - numLength(f1);
-		while (f1o > 0 && initial0s > 0)
+		if (boolean)
 		{
-			printf("%i", 0);
-			initial0s--;
+			fn = n1 + n2;
+			printf(", %ld", fn);
+			n1 = n2;
+			n2 = fn;
 		}
-		printf("%lu", f1);
-
-		tmp = (f1 + f2) % mx;
-		tmpo = f1o + f2o + (f1 + f2) / mx;
-		f1 = f2;
-		f1o = f2o;
-		f2 = tmp;
-		f20 = tmpo;
-
-		if (i != 98)
-			printf(",");
 		else
-			printf("\n");
-		i++;
-	}return (0);
+		{
+			if (boolean2)
+			{
+				n11 = n1 % 1000000000;
+				n22 = n2 % 1000000000;
+				n1 = n1 / 1000000000;
+				n2 = n2 / 1000000000;
+				boolean2 = 0;
+			}
+			fn2 = (n11 + n22);
+			fn = n1 + n2 + (fn2 / 1000000000);
+			printf(", %ld", fn);
+			printf("%ld", fn2 % 1000000000);
+			n1 = n2;
+			n11 = n22;
+			n2 = fn;
+			n22 = (fn2 % 1000000000);
+		}
+		if (((n1 + n2) < 0) && boolean == 1)
+			boolean = 0;
+	}
+	printf("\n");
+	return (0);
 }
